@@ -14,11 +14,11 @@ public class Character : MonoBehaviour {
 		transform.position += new Vector3(0, 0, 0.2f); //make Pacman continously move forward
 		
 		if(Input.GetKey(KeyCode.A)){
-			rigidbody.AddForce (new Vector3(-20.0f, 0, 0)); //when A is pressed Pacman will move left in a smooth motion
+			transform.position += new Vector3(-2.0f, 0, 0); //when A is pressed Pacman will move left
 		}
 		
 		if(Input.GetKey(KeyCode.D)){
-			rigidbody.AddForce (new Vector3(20.0f, 0, 0)); //when D is pressed Pacman will move right in a smooth motion
+			transform.position += new Vector3(2.0f, 0, 0); //when D is pressed Pacman will move right
 		}
 	}
 }
