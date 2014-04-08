@@ -4,7 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
 
 
-
+	float vertical = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,12 +22,14 @@ public class Character : MonoBehaviour {
 			}
 			
 		if(Input.GetKey(KeyCode.DownArrow)){
+			gameObject.transform.Rotate(0, 180, 0);
 			transform.position += new Vector3(0.2f, 0, 0); //when down arrow is pressed Pacman will move right
-			//gameObject.transform.Rotate(0, 180, 0);
+
 			}
 		if(Input.GetKey(KeyCode.LeftArrow)){
+			vertical -= 22.5f;
 			transform.position += new Vector3(0, 0, -0.2f); //when left arrow is pressed Pacman will move left
-			//gameObject.transform.Rotate(0, -90, 0);
+			gameObject.transform.Rotate(0, vertical, 0);
 
 			}
 			
