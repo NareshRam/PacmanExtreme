@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour {
 		if(other.gameObject.name == "Pacman"){
 			//Instantiate(exp, transform.position, Quaternion.identity); //transforming the object when hit by pacman (this script is added to all obstacles)
 			Destroy (gameObject); //destroying object immediatly after
+			Application.LoadLevel ("gameover");
 		}
 	}
 }
