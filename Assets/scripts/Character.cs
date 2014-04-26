@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-	public float movementSpeed = 10;
-	public float turnSpeed = 10;
+	public float movementSpeed;
+	public float turnSpeed;
 	//public float playerSpeed = 10.0f;
 
 	// Use this for initialization
