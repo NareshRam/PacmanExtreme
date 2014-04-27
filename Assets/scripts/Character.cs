@@ -4,12 +4,18 @@ using System.Collections;
 public class Character : MonoBehaviour {
 	public float movementSpeed;
 	public float turnSpeed;
+
 	//public float playerSpeed = 10.0f;
+
+
+
 
 	// Use this for initialization
 	void Start () {
-
+//		
 	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,8 +52,11 @@ public class Character : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){ //collision to detect if pacman hits a ghost, he "dies"
 		if(other.gameObject.name == "Ghost"){
+
+		
 		//Instantiate(exp, transform.position, Quaternion.identity); //transforming the object when hit by pacman (this script is added to all obstacles)
 		Destroy (gameObject); //destroying object immediatly after
+		Score_Controller.lifeCount--;
 		Application.LoadLevel ("gameover");
 		}
 

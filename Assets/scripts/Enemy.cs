@@ -16,7 +16,8 @@ public class Enemy : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.name == "Pacman"){
-			Destroy (gameObject); //destroying object immediatly after
+
+//			Destroy (gameObject); //destroying object immediatly after
 			Application.LoadLevel ("gameover");
 		}
 	}
