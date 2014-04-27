@@ -13,13 +13,14 @@ public class Score_Controller : MonoBehaviour {
 
 		string livesText = "Lives: " + lifeCount; //Text of GUI and total amount of lives
 		GUI.Box(new Rect(Screen.width - 150, 5, 130, 20), livesText); //The placement of GUI
-
+		PlayerPrefs.SetInt ("Total Score: ", scoreCount);
 
 	}
 
 
-		
-		
+	
+
+	
 
 
 }

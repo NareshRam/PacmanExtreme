@@ -11,61 +11,7 @@ Platform assembly: C:\Users\Public\Documents\Unity Projects\PacmanExtreme\elul_D
 Loading C:\Users\Public\Documents\Unity Projects\PacmanExtreme\elul_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Public\Documents\Unity Projects\PacmanExtreme\elul_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\PacmanExtreme\elul_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.039 seconds
+- Completed reload, in  0.050 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
-  at FollowCamera.LateUpdate () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-UnloadTime: 3.185785 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 116.
-Total: 0.694268 ms (FindLiveObjects: 0.006037 ms CreateObjectMapping: 0.007848 ms MarkObjects: 0.263218 ms  DeleteObjects: 0.057352 ms)
-
-UnloadTime: 0.254162 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 115.
-Total: 0.601598 ms (FindLiveObjects: 0.003924 ms CreateObjectMapping: 0.006640 ms MarkObjects: 0.273481 ms  DeleteObjects: 0.002112 ms)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped frame because GfxDevice is in invalid state (device lost)
- 
-(Filename:  Line: 1650)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped frame because GfxDevice is in invalid state (device lost)
- 
-(Filename:  Line: 1650)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped frame because GfxDevice is in invalid state (device lost)
- 
-(Filename:  Line: 1650)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped frame because GfxDevice is in invalid state (device lost)
- 
-(Filename:  Line: 1650)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped frame because GfxDevice is in invalid state (device lost)
- 
-(Filename:  Line: 1650)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped frame because GfxDevice is in invalid state (device lost)
- 
-(Filename:  Line: 1650)
-

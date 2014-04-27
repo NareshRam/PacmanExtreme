@@ -51,14 +51,15 @@ public class Character : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other){ //collision to detect if pacman hits a ghost, he "dies"
-		if(other.gameObject.name == "Ghost"){
+		if(other.gameObject.name == "GhostCaps"){
+			Score_Controller.lifeCount--;
+			transform.position = new Vector3(0.0f, 0.5f, -14.0f);
+			if( Score_Controller.lifeCount < 0){
 
-		
-		//Instantiate(exp, transform.position, Quaternion.identity); //transforming the object when hit by pacman (this script is added to all obstacles)
-		Destroy (gameObject); //destroying object immediatly after
-		Score_Controller.lifeCount--;
-		Application.LoadLevel ("gameover");
+				Application.LoadLevel ("gameover");
+//				Debug.Log("Herpaderp?");
+			}
 		}
 
-	}
+}
 }
