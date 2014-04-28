@@ -25,7 +25,7 @@ public class enemyThree : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		gameObject.renderer.material.color = new Color (3.0f, 1.0f, 1.0f); //setting the values for the color pink
+		gameObject.renderer.material.color = Color.magenta; //setting the values for the color pink
 		nav = GetComponent<NavMeshAgent>();
 		
 		StartCoroutine(MyWaitingTime());
