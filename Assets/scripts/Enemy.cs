@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-//enemy #1 , the Chaser
+//enemy #1 the Chaser
 public class Enemy : MonoBehaviour {
 	
 	private NavMeshAgent nav;
 	
 	GameObject player;
-	public Transform playerTransform;
+	private Transform playerTransform;
 	
 	//variables for emergency back-up ai
 	//	public float speed;
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		nav = GetComponent<NavMeshAgent>();
-		gameObject.renderer.material.color = Color.red;
+		gameObject.renderer.material.color = Color.red; //drawing the object red
 	}
 	
 	// Update is called once per frame
@@ -36,17 +36,12 @@ public class Enemy : MonoBehaviour {
 		//		myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(player.position - myTransform.position), rotationSpeed * Time.deltaTime);
 		//		
 		//		myTransform.position += myTransform.forward * speed * Time.deltaTime;
-		
 	}
 
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.name == "Pacman"){
 //			Destroy (gameObject); //destroying object immediatly after
 //			Application.LoadLevel ("gameover");
-
-
-
-
 		}
 	}
 }

@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-//enemy #4, stupid AI
-public class enemyTwo : MonoBehaviour {
-
+//enemy #2, ambusher AI
+public class enemyThree : MonoBehaviour {
+	
 	bool timerLoop = true;
-
-
+	
+	
 	private NavMeshAgent nav;
 	GameObject player;
 	private Transform playerTransform;
-	private float randX;
-	private float randZ;
+	private float aX;
+	private float aZ;
 	
 	//variables for emergency back-up ai
 	//	public float speed;
@@ -25,20 +25,20 @@ public class enemyTwo : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		gameObject.renderer.material.color = new Color (1f, .65f, 0f); //setting the values for the color orange
+		gameObject.renderer.material.color = new Color (3.0f, 1.0f, 1.0f); //setting the values for the color pink
 		nav = GetComponent<NavMeshAgent>();
-
+		
 		StartCoroutine(MyWaitingTime());
-
+		
 	}
 	IEnumerator MyWaitingTime()
 	{
 		while(timerLoop){
-			randX = Random.Range(-27.0f, 27.0f);
-			randZ = Random.Range(-26.4f, 28.0f);
+			aX = Random.Range(position.x - 5, position.x + 5);
+			aZ = Random.Range(position.z - 5, position.z + 5);
 			//The time before it resets back to its original position
-			yield return new WaitForSeconds (20.0f);
-
+			yield return new WaitForSeconds (2.0f);
+			
 		}
 	}
 	
@@ -48,7 +48,7 @@ public class enemyTwo : MonoBehaviour {
 		player = GameObject.FindWithTag ("Player");
 		playerTransform = player.transform;
 		position = playerTransform.position;
-		RandPosition = new Vector3(randX, 0.5f, randZ);
+		RandPosition = new Vector3(aX, 0.5f, aZ);
 		nav.SetDestination (RandPosition);
 		
 		//emergency back-up ai - Chases directly after pacman, doesnt care about walls
@@ -62,7 +62,7 @@ public class enemyTwo : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.name == "Pacman"){
 			//			Destroy (gameObject); //destroying object immediatly after
-			//			Application.LoadLevel ("gameover");
+			//			Application.LoadLevel ("gameover");	
 		}
 	}
 }
