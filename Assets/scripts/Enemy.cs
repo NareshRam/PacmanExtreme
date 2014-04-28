@@ -9,12 +9,6 @@ public class Enemy : MonoBehaviour {
 	GameObject player;
 	private Transform playerTransform;
 	
-	//variables for emergency back-up ai
-	//	public float speed;
-	//	public float rotationSpeed;
-	//	public Transform player;
-	//	public Transform myTransform;
-	
 	//get player position
 	Vector3 position;
 	
@@ -30,18 +24,5 @@ public class Enemy : MonoBehaviour {
 		playerTransform = player.transform;
 		position = playerTransform.position;
 		nav.SetDestination (position);
-		
-		//emergency back-up ai - Chases directly after pacman, doesnt care about walls
-		//		player = GameObject.FindWithTag ("Player").transform;
-		//		myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(player.position - myTransform.position), rotationSpeed * Time.deltaTime);
-		//		
-		//		myTransform.position += myTransform.forward * speed * Time.deltaTime;
-	}
-
-	void OnCollisionEnter(Collision other){
-		if(other.gameObject.name == "Pacman"){
-//			Destroy (gameObject); //destroying object immediatly after
-//			Application.LoadLevel ("gameover");
-		}
 	}
 }
