@@ -40,7 +40,13 @@ public class enemyThree : MonoBehaviour {
 		playerTransform = player.transform;
 		position = playerTransform.position;
 		RandPosition = new Vector3(aX, 0.5f, aZ);
-		nav.SetDestination (RandPosition);
+		if (position.x >= aX - 4 && position.x <= aX + 4) {            
+			if (position.z >= aZ - 4 && position.z <= aZ + 4) {
+				nav.SetDestination (position);
+			}
+		} else {
+			nav.SetDestination (RandPosition);
+		}
 
 	}
 }

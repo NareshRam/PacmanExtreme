@@ -24,25 +24,26 @@ public class enemyFour : MonoBehaviour {
 		
 	}
 
-	IEnumerator MyWaitingTime()
+	IEnumerator MyWaitingTime() // enum function MyWaitingTime is constantly called in Update, the while loop loops indefinetely, relatively randomizing destinations of the AI
 	{
-		while(timerLoop){
+		while(timerLoop){ 
 
-			fX = Random.Range(0, -28);
+
+			fX = Random.Range(0, -28); //Random coordinates in the Top left Corner
 			fZ = Random.Range(0, 28);
-			yield return new WaitForSeconds (Random.Range (10, 30)); //The time before the cyan ghost gets a new random position
+			yield return new WaitForSeconds (Random.Range (5, 20)); //The time before the cyan ghost gets a new random position, between 5 and 20 seconds
 
-			fX = Random.Range(0, 27);
-			fZ = Random.Range(, position.z + 3);
-			yield return new WaitForSeconds (Random.Range (10, 30));
+			fX = Random.Range(0, 27); //bottom right corner
+			fZ = Random.Range(0, -26);
+			yield return new WaitForSeconds (Random.Range (5, 20));
 
-			fX = Random.Range(position.x - 3, position.x + 3);
-			fZ = Random.Range(position.z - 3, position.z + 3);
-			yield return new WaitForSeconds (Random.Range (10, 30));
+			fX = Random.Range(0, 27); //Top right corner
+			fZ = Random.Range(0, 28);
+			yield return new WaitForSeconds (Random.Range (5, 20));
 
-			fX = Random.Range(position.x - 10, position.x + 10);
-			fZ = Random.Range(position.z - 10, position.z + 10);
-			yield return new WaitForSeconds (Random.Range (10, 30));
+			fX = Random.Range(0, -27); //bottom left corner
+			fZ = Random.Range(0, -25);
+			yield return new WaitForSeconds (Random.Range (5, 20));
 			
 		}
 	}
@@ -55,6 +56,12 @@ public class enemyFour : MonoBehaviour {
 		playerTransform = player.transform;
 		position = playerTransform.position;
 		RandPosition = new Vector3(fX, 0.5f, fZ);
-		nav.SetDestination (RandPosition);
+		if (position.x >= fX - 10 && position.x <= fX + 10) {            
+			if (position.z >= fZ - 10 && position.z <= fZ + 10) {
+				nav.SetDestination (position);
+			}
+		} else {
+			nav.SetDestination (RandPosition);
+		}
 	}
 }

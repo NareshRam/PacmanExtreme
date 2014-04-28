@@ -38,6 +38,12 @@ public class enemyTwo : MonoBehaviour {
 		playerTransform = player.transform;
 		position = playerTransform.position;
 		RandPosition = new Vector3(randX, 0.5f, randZ);
-		nav.SetDestination (RandPosition);
+		if (position.x >= randX - 9 && position.x <= randX + 9) {            
+			if (position.z >= randZ - 9 && position.z <= randZ + 9) {
+				nav.SetDestination (position);
+			}
+		} else {
+			nav.SetDestination (RandPosition);
+		}
 	}
 }
