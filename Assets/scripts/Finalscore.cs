@@ -14,8 +14,8 @@ public class Finalscore : MonoBehaviour {
 	
 	}
 	void OnGUI() {
-		string scoreText = " " + finalScore;
-		GUI.Box(new Rect(Screen.width/2, Screen.height/2-25, 40 , 50), scoreText);
+		string scoreText = "FINAL SCORE: " + finalScore;
+		GUI.Box(new Rect(Screen.width/2-50, Screen.height/2-5, 125 , 60), scoreText);
 		}
 
 }
