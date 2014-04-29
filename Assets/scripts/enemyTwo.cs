@@ -14,6 +14,7 @@ public class enemyTwo : MonoBehaviour {
 	//get player position
 	Vector3 position;
 	Vector3 RandPosition;
+	Vector3 runAway;
 	
 	// Use this for initialization
 	void Start () {
@@ -38,10 +39,15 @@ public class enemyTwo : MonoBehaviour {
 		playerTransform = player.transform;
 		position = playerTransform.position;
 		RandPosition = new Vector3(randX, 0.5f, randZ);
-		if (position.x >= randX - 9 && position.x <= randX + 9) {            
+		runAway = new Vector3(-2.31759f, 0.5f, 0.35637f);
+
+		if (position.x >= randX - 9 && position.x <= randX + 9 && Score_Controller.killPower < 0) {            
 			if (position.z >= randZ - 9 && position.z <= randZ + 9) {
 				nav.SetDestination (position);
 			}
+		}
+		else if (Score_Controller.killPower > 0) {
+			nav.SetDestination (runAway);
 		} else {
 			nav.SetDestination (RandPosition);
 		}

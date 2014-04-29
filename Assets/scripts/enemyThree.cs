@@ -14,6 +14,7 @@ public class enemyThree : MonoBehaviour {
 	//get player position
 	Vector3 position;
 	Vector3 RandPosition;
+	Vector3 runAway;
 	
 	// Use this for initialization
 	void Start () {
@@ -40,13 +41,17 @@ public class enemyThree : MonoBehaviour {
 		playerTransform = player.transform;
 		position = playerTransform.position;
 		RandPosition = new Vector3(aX, 0.5f, aZ);
-		if (position.x >= aX - 4 && position.x <= aX + 4) {            
+		runAway = new Vector3(-0.73064f, 0.5f, 0.51779f);
+
+		if (position.x >= aX - 4 && position.x <= aX + 4 && Score_Controller.killPower < 0) {            
 			if (position.z >= aZ - 4 && position.z <= aZ + 4) {
 				nav.SetDestination (position);
 			}
+		}
+		else if (Score_Controller.killPower > 0) {
+			nav.SetDestination (runAway);
 		} else {
 			nav.SetDestination (RandPosition);
 		}
-
 	}
 }

@@ -10,9 +10,6 @@ public class Score_Behaviour : MonoBehaviour {
 			Score_Controller.scoreCount++; // Score plus one if player hits the balls
 
 			Destroy (gameObject, lifetime); //Destroy the ball within 0.2sec when player hits it
-			}
-
+		}
 	}
 }
-	
-

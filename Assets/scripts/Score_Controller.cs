@@ -5,6 +5,7 @@ public class Score_Controller : MonoBehaviour {
 
 	public static int scoreCount = 0; //Score have to begin with zero
 	public static int lifeCount = 3; //Lives begin with three
+
 	public static int killPower = 0; // Kill power up begins with zero
 
 	public void OnGUI() //void to make GUI
@@ -20,11 +21,4 @@ public class Score_Controller : MonoBehaviour {
 		GUI.Box(new Rect(Screen.width - 150, 45, 130, 20), killText); //The placement of GUI
 
 	}
-
-
-	
-
-	
-
-
 }
