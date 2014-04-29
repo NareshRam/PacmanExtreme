@@ -14,9 +14,9 @@ public class gameOver : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if(GUI.Button (new Rect(Screen.width/2.1f, Screen.height/1.3f, 100, 30), "QUIT GAME")){
+		if(GUI.Button (new Rect(Screen.width/2.1f, Screen.height/1.3f, 100, 30), "QUIT GAME")){ //A button to exit the game once it's finished
 
-			Application.Quit ();
+			Application.Quit (); //Closes the program
 		}
 	}
 }

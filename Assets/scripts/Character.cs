@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
+	//Variables
 	public float movementSpeed;
 	public float turnSpeed;
 
@@ -13,11 +14,11 @@ public class Character : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		float horizontal = Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime;
+		//WASD controls
+		float horizontal = Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime; // AD controls, or left-right arrows
 		transform.Rotate(0, horizontal, 0);
 		
-		float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+		float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime; // WS controls or forward-back arrows
 		transform.Translate(0, 0, vertical);
 	}
 
@@ -29,7 +30,7 @@ public class Character : MonoBehaviour {
 		}
 
 		if( Score_Controller.lifeCount < 0){ // if Pacman has no any life left, then it is Game Over!
-			Application.LoadLevel ("gameover");
+			Application.LoadLevel ("gameover"); //load another scene (gameover screen)
 		}
 	} 
 }

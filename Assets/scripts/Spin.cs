@@ -5,9 +5,8 @@ using System.Collections;
 public class Spin : MonoBehaviour {
 
 
-		private void Update()
-		{
-		transform.Rotate(0,100*Time.deltaTime,0);
+		private void Update(){
+			transform.Rotate(0,100*Time.deltaTime,0); // Rotates an object
 		}
 	
 }

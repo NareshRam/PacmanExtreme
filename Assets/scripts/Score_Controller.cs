@@ -15,7 +15,7 @@ public class Score_Controller : MonoBehaviour {
 
 		string livesText = "Lives: " + lifeCount; //Text of GUI and total amount of lives
 		GUI.Box(new Rect(Screen.width - 150, 25, 130, 20), livesText); //The placement of GUI
-		PlayerPrefs.SetInt (" ", scoreCount); 
+		PlayerPrefs.SetInt (" ", scoreCount); // Playerprefs save the score from this scene so that the data can be acquired in another scene
 
 		string killText = "Kill Power " + killPower; //Text of GUI and total amount of lives
 		GUI.Box(new Rect(Screen.width - 150, 45, 130, 20), killText); //The placement of GUI
