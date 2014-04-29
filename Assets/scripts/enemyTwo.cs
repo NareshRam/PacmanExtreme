@@ -41,7 +41,7 @@ public class enemyTwo : MonoBehaviour {
 		RandPosition = new Vector3(randX, 0.5f, randZ);
 		runAway = new Vector3(-2.31759f, 0.5f, 0.35637f);
 
-		if (position.x >= randX - 9 && position.x <= randX + 9 && Score_Controller.killPower < 0) {            
+		if (position.x >= randX - 9 && position.x <= randX + 9 && Score_Controller.killPower <= 0) {            
 			if (position.z >= randZ - 9 && position.z <= randZ + 9) {
 				nav.SetDestination (position);
 			}

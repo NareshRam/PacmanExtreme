@@ -43,7 +43,7 @@ public class enemyThree : MonoBehaviour {
 		RandPosition = new Vector3(aX, 0.5f, aZ);
 		runAway = new Vector3(-0.73064f, 0.5f, 0.51779f);
 
-		if (position.x >= aX - 4 && position.x <= aX + 4 && Score_Controller.killPower < 0) {            
+		if (position.x >= aX - 4 && position.x <= aX + 4 && Score_Controller.killPower <= 0) {            
 			if (position.z >= aZ - 4 && position.z <= aZ + 4) {
 				nav.SetDestination (position);
 			}
