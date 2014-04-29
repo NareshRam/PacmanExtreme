@@ -24,7 +24,9 @@ public class Character : MonoBehaviour {
 	void OnCollisionEnter(Collision other){ //collision to detect if pacman hits a ghost, he "dies"
 		if (other.gameObject.name == "GhostCaps" && Score_Controller.killPower >0) { //If Pacman has kill power ups, then the Enemy will die
 			Score_Controller.killPower--;//Takes kill power-up when it is used
+			Score_Controller.scoreCount+=20; //Gives Pacman 20 score points
 			Destroy (other.gameObject); //Destroy the enemy
+
 		}
 
 		else if(other.gameObject.name == "GhostCaps" && Score_Controller.killPower <=0){ //If Pacman don't have kill power ups, then Pacman will die
