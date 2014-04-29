@@ -12,7 +12,7 @@ public class enemyThree : MonoBehaviour {
 	private float aZ;
 	
 	//get player position
-	Vector3 position;
+	Vector3 playerPos;
 	Vector3 RandPosition;
 	Vector3 runAway;
 	
@@ -27,8 +27,8 @@ public class enemyThree : MonoBehaviour {
 	IEnumerator MyWaitingTime()
 	{
 		while(timerLoop){
-			aX = Random.Range(position.x - 6, position.x + 6);
-			aZ = Random.Range(position.z - 6, position.z + 6);
+			aX = Random.Range(playerPos.x - 6, playerPos.x + 6);
+			aZ = Random.Range(playerPos.z - 6, playerPos.z + 6);
 			yield return new WaitForSeconds (2.0f);
 		}
 	}
@@ -39,19 +39,28 @@ public class enemyThree : MonoBehaviour {
 		MyWaitingTime ();
 		player = GameObject.FindWithTag ("Player");
 		playerTransform = player.transform;
-		position = playerTransform.position;
+		playerPos = playerTransform.position;
 		RandPosition = new Vector3(aX, 0.5f, aZ);
 		runAway = new Vector3(-0.73064f, 0.5f, 0.51779f);
 
-		if (position.x >= aX - 4 && position.x <= aX + 4 && Score_Controller.killPower <= 0) {            
-			if (position.z >= aZ - 4 && position.z <= aZ + 4) {
-				nav.SetDestination (position);
+		if (playerPos.x >= aX - 4 && playerPos.x <= aX + 4 && Score_Controller.killPower <= 0) {            
+			if (playerPos.z >= aZ - 4 && playerPos.z <= aZ + 4) {
+				nav.SetDestination (playerPos);
 			}
 		}
 		else if (Score_Controller.killPower > 0) {
 			nav.SetDestination (runAway);
 		} else {
 			nav.SetDestination (RandPosition);
+		}
+	}
+
+	void OnCollisionEnter(Collision other){
+		
+		if (other.gameObject.tag == "Player" && Score_Controller.killPower > 0){
+			Score_Controller.killPower--;//Takes kill power-up when it is used
+			Score_Controller.scoreCount += 20; //Gives Pacman 20 score points
+			transform.position = new Vector3(-0.73064f, 0.5f, 0.51779f);
 		}
 	}
 }

@@ -13,7 +13,7 @@ public class enemyFour : MonoBehaviour {
 	private float fZ;
 
 	//get player position
-	Vector3 position;
+	Vector3 playerPos;
 	Vector3 RandPosition;
 	Vector3 runAway;
 	
@@ -53,19 +53,28 @@ public class enemyFour : MonoBehaviour {
 		MyWaitingTime ();
 		player = GameObject.FindWithTag ("Player");
 		playerTransform = player.transform;
-		position = playerTransform.position;
+		playerPos = playerTransform.position;
 		RandPosition = new Vector3(fX, 0.5f, fZ);
 		runAway = new Vector3(-1.55061f, 0.5f, -0.4118f);
 
-		if (position.x >= fX - 10 && position.x <= fX + 10 && Score_Controller.killPower <= 0) {            
-			if (position.z >= fZ - 10 && position.z <= fZ + 10) {
-				nav.SetDestination (position);
+		if (playerPos.x >= fX - 10 && playerPos.x <= fX + 10 && Score_Controller.killPower <= 0) {            
+			if (playerPos.z >= fZ - 10 && playerPos.z <= fZ + 10) {
+				nav.SetDestination (playerPos);
 			}
 		}
 		else if (Score_Controller.killPower > 0) {
 			nav.SetDestination (runAway);
 		} else {
 			nav.SetDestination (RandPosition);
+		}
+	}
+
+	void OnCollisionEnter(Collision other){
+		
+		if (other.gameObject.tag == "Player" && Score_Controller.killPower > 0){
+			Score_Controller.killPower--;//Takes kill power-up when it is used
+			Score_Controller.scoreCount += 20; //Gives Pacman 20 score points
+			transform.position = new Vector3(-1.55061f, 0.5f, -0.4118f);
 		}
 	}
 }

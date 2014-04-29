@@ -19,6 +19,5 @@ public class Score_Controller : MonoBehaviour {
 
 		string killText = "Kill Power " + killPower; //Text of GUI and total amount of lives
 		GUI.Box(new Rect(Screen.width - 150, 45, 130, 20), killText); //The placement of GUI
-
 	}
 }

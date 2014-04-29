@@ -6,7 +6,6 @@ public class Character : MonoBehaviour {
 	public float movementSpeed;
 	public float turnSpeed;
 
-
 	// Use this for initialization
 	void Start () {
 
@@ -23,14 +22,8 @@ public class Character : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other){ //collision to detect if pacman hits a ghost, he "dies"
-		if (other.gameObject.name == "GhostCaps" && Score_Controller.killPower > 0) { //If Pacman has kill power ups, then the Enemy will die
-			Score_Controller.killPower--;//Takes kill power-up when it is used
-			Score_Controller.scoreCount += 20; //Gives Pacman 20 score points
-			Destroy (other.gameObject); //Destroy the enemy
 
-		}
-
-		else if(other.gameObject.name == "GhostCaps" && Score_Controller.killPower <= 0){ //If Pacman don't have kill power ups, then Pacman will die
+		if(other.gameObject.name == "GhostCaps" && Score_Controller.killPower <= 0){ //If Pacman don't have kill power ups, then Pacman will die
 			Score_Controller.lifeCount--; //Takes one life if Pacman dies
 			transform.position = new Vector3(0.0f, 0.5f, -14.0f); //Sends Pacman to start position
 		}
@@ -38,8 +31,5 @@ public class Character : MonoBehaviour {
 		if( Score_Controller.lifeCount < 0){ // if Pacman has no any life left, then it is Game Over!
 			Application.LoadLevel ("gameover");
 		}
-		if (Score_Controller.killPower > 0) {
-			audio.PlayOneShot (audio.clip, 3.0f);
-			}
 	} 
 }
